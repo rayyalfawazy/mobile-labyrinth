@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
+using TMPro;
 
 public class Coin : MonoBehaviour
 {
     [SerializeField] CoinData coinData;
     [SerializeField] MeshRenderer coinRenderer;
+
+    public int GetScoreAddition { get => coinData.scoreAddition; }
 
     void Start()
     {
