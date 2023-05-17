@@ -1,11 +1,22 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameMenu : MonoBehaviour
 {
+    [SerializeField] TMP_Text gameVersion;
+
+    private void Start()
+    {
+        if (gameVersion != null)
+        {
+            ShowVersion();
+        }
+    }
+
     public void GoToLevel(string level)
     {
         if (level != "") 
@@ -29,5 +40,21 @@ public class GameMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
         DOTween.KillAll();
+    }
+
+    public void GoToCredit()
+    {
+        SceneManager.LoadScene("EndCredit");
+        DOTween.KillAll();
+    }
+
+    public void ShowVersion()
+    {
+        gameVersion.text = $"Version {Application.version}";
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
